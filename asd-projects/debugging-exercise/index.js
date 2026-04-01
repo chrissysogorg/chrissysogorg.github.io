@@ -14,12 +14,6 @@ var ghosts = [];
 var ghostRadius = 10;
 // modify these values if you want faster moving ghosts or a shorter countdown timer
 const FPS = 25;
-const initialDelay = 5_000;
-
-//////////
-// startup
-//////////
-
 // this gets the whole thing going;
 // it creates a number of ghosts both in JavaScript and in the HTML of the website
 for (var i = 0; i < maxGhosts; i++) {
@@ -80,11 +74,11 @@ function decideSpeed() {
 
 // this generates an id for a ghost given the ghost's number
 function getId(number) {
-  return "ghost" + number; ()
+  return "ghost" + number (1)
 }
 
 // this adds a ghost into the HTML
-funtion addNewGhostElement(ghost, id) {
+function addNewGhostElement(ghost, id) {
   // this creates the HTML for a new ghost element
   var $ghost = $("<img>")
     .attr("id", id)
@@ -102,12 +96,12 @@ funtion addNewGhostElement(ghost, id) {
 //////////////////
 
 // this should move all of the ghosts
-function update) {
+function update (){
   // loop over the ghosts array. We use the maxGhosts variable instead of ghosts.length
   // to make seeing issues in the debugger slightly easier (in practice, you should use
   // ghosts.length, but do NOT change it here)
-  for (var i = 0; i < maxGhosts; i++) {
-    var ghost = ghosts[j];
+   for(var i = 0; i < maxGhosts; i++) {
+    var ghost = ghosts[i];
 
     // move the ghost
     moveGhost(ghost);
@@ -136,7 +130,7 @@ function moveGhost(ghost) {
 // this bounces ghosts if they hit a wall
 function bounceGhost(ghost) {
   // this bounces off the left wall
-  if (ghost.x < 0{
+  if (ghost.x < 0 ){
     ghost.x -= ghost.speedX;
     ghost.speedX *= -1;
   }
@@ -245,5 +239,4 @@ function startProgram() {
     $countdown.remove();
   }
 }
-
-});
+  }, 1000);
