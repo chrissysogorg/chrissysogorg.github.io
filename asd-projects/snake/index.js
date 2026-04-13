@@ -19,29 +19,7 @@ var apple = {};
 
 
 // TODO 5, Part 1: Create the snake variable
-
 var snake = {};
-// initialize a new snakeSquare Object
-var snakeSquare = {};
-
-// make the snakeSquare element and add it to the board
-snakeSquare.element = $("<div>").addClass("snake").appendTo(board);
-
-// assign the row and column position
-snakeSquare.row = row;
-snakeSquare.column = column;
-
-// set the snake’s position visually
-repositionSquare(snakeSquare);
-
-// if this is the head, give it a unique ID
-if (snake.body.length === 0) {
-  snakeSquare.element.attr("id", "snake-head");
-}
-
-// add the square to the snake’s body and update the tail
-snake.body.push(snakeSquare);
-snake.tail = snakeSquare;
 
 
 // Constant Variables
@@ -55,48 +33,75 @@ var KEY = {
   DOWN: 40,
 };
 
+
 // interval variable required for stopping the update function when the game ends
 var updateInterval;
 
+
 // variable to keep track of the key (keycode) last pressed by the user
 var activeKey;
+
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// GAME SETUP //////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+
 // TODO: turn on keyboard inputs
 $("body").on("keydown", handleKeyDown);
+
 
 // start the game
 init();
 
+
 function init() {
   // TODO 5, Part 2: initialize the snake
-  snake.body = []; // Start with an empty body
+    snake.body = []; // Start with an empty body
 makeSnakeSquare(10, 10); // Create the first square in the middle of the board
 makeSnakeSquare(10, 9); // Create a second square to the left of the first
 makeSnakeSquare(10, 8); // Create a third square to the left of the second
 snake.head = snake.body[0]; // Mark the first segment as the head
-  
+ 
   // TODO 4, Part 3: initialize the apple
-makeApple()
+makeApple();
+
 
   // TODO 6, Part 1: Initialize the interval
+updateInterval = setInterval(update,100);
 
 
 }
 
+
 ////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// PROGRAM FUNCTIONS ////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+
 
 /*
  * On each update tick update the snake's position and check for
  * collisions with the walls.
  */
 function update() {
+
   // TODO 6, Part 2: Fill in the update function's code block
+
+
+       if (started) {
+  moveSnake();
+}
+
+
+if (hasHitWall() || hasCollidedWithSnake()) {
+  endGame();
+}
+
+
+if (hasCollidedWithApple()) {
+  handleAppleCollision();
+}
+
 
 
 
