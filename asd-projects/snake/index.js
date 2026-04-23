@@ -129,7 +129,7 @@ else if (activeKey === KEY.RIGHT) {
   }
 
 
-  else{
+  else if (activeKey === KEY.DOWN) {
     snake.head.direction = "down";
   }
 
@@ -166,7 +166,7 @@ for (var i = snake.body.length - 1; i > 0; i--) {
     var snakeSquareInFront = snake.body[i-1];
 
 
-    moveBodyAToBodyB(currentSnakeSquare, snakeSquareInFront);
+     moveBodyAToBodyB(currentSnakeSquare, snakeSquareInFront);
 
 
     repositionSquare(currentSnakeSquare);
@@ -201,7 +201,11 @@ repositionSquare(snake.head);
 
 
 // TODO 9: Create a new helper function
-
+ function moveBodyAToBodyB(bodyA,bodyB) {
+  bodyA.row = bodyB.row;
+  bodyA.column = bodyB.column;
+  bodyA.direction = bodyB.directions;
+ }
 
 
 
@@ -214,12 +218,25 @@ function hasHitWall() {
     HINT: What will the row and column of the snake's head be if this were the case?
   */
 
+  // Check if snake head row is less than 0 or greater than max rows
+  // Check if snake head column is less than 0 or greater than max columns
+  if (
+    snake.head.row < 0 ||
+    snake.head.row > ROWS ||
+    snake.head.column < 0 ||
+    snake.head.column > COLUMNS
+  ) {
+    // If either condition is true, the snake hit the wall
+    return true;
+  }
+
 
 
   return false;
 }
 
 function hasCollidedWithApple() {
+
   /* 
     TODO 12: Should return true if the snake's head has collided with the apple, 
     false otherwise
@@ -340,7 +357,8 @@ snake.tail = snakeSquare;
 */
 function handleKeyDown(event) {
   // TODO 7: make the handleKeyDown function register which key is pressed
-
+activeKey = event.which;
+console.log(activeKey);
 
   // If a valid direction key is pressed, start the game
   if (
