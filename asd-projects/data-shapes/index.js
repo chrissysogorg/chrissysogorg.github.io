@@ -1,31 +1,18 @@
-$(document).ready(function () {
+
   /////////////////////////////////////////////////
   // SETUP SECTION - DO NOT TOUCH /////////////////
   /////////////////////////////////////////////////
 
   // These lines register functionality with the different buttons
-  $("#cycle-left").on("click", decrementIndex);
+  cycle-left").on("click", decrementIndex);
   $("#cycle-right").on("click", incrementIndex);
   $("#execute1").on("click", staticDisplay);
   $("#execute2").on("click", goodDisplay);
   $("#execute3").on("click", badDisplay);
 
   // These lines handle scheduling animations
-  const frameRate = 60;
-  setInterval(animate, 1000 / frameRate);
-
-  // These lines prepare an object to store animation details
-  let animationDetails = {
-    x: 148,
-    y: 148,
-    speedX: 2,
-    speedY: 1,
-    angle: 0,
-    showCount: 60,
-    show: true,
-    displayType: 0,
-  };
-
+  const frameRate = 60};
+  setInterval(animate, 1000 / framerate ) : 
   // This line produces most of the data array and stores it in the variable "dataShapes"
   const dataShapes = generateShapeData();
   var currentIndex = 0;
@@ -93,11 +80,7 @@ $(document).ready(function () {
               shape: shapes[j],
               repeat: repeats[k],
             };
-            data.push(newObj);
-          }
-        }
-      }
-    }
+            data.push
 
     return data;
   }
@@ -238,10 +221,3 @@ $(document).ready(function () {
       animationDetails.showCount = 60;
     }
   }
-
-  // This function animates spinning
-  function animateSpin() {
-    animationDetails.angle += 4;
-    $("#shape").css("transform", `rotate(${animationDetails.angle}deg)`);
-  }
-});
