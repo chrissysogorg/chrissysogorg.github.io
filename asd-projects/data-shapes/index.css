@@ -4,6 +4,7 @@
   border: silver ridge 4px;
 }
 
+
 #info-bar {
   width: 400px;
   height: 40px;
@@ -11,6 +12,7 @@
   font-size: 40px;
   text-align: center;
 }
+
 
 #shape-container {
   width: 400px;
@@ -20,11 +22,13 @@
   border-bottom: silver ridge 4px;
 }
 
+
 #button-box {
   width: 400px;
   height: 40px;
   background: darkgray;
 }
+
 
 #shape {
   color: white;
@@ -37,14 +41,5 @@
   display: block;
 }
 
-button {
-  width: auto;
-  height: auto;
-  margin: auto;
-  margin-top: 10px;
-  margin-left: 9px;
-}
 
-p {
-  margin: 5px;
-}
+button {
